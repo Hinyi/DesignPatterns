@@ -1,10 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using DesignPatterns.Facade;
 using DesignPatterns.NetworkFactory;
 using DesignPatterns.NetworkUtility;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Hello, World!");
+
+//Facade
+NetworkFacade networkFacade = new NetworkFacade("1.1.1.1", "tcp/ip", 8080);
+
+networkFacade.SendPackerOverNetwork();
 
 //Singleton
 
