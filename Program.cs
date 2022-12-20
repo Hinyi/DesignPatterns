@@ -13,7 +13,6 @@ NetworkFacade networkFacade = new NetworkFacade("1.1.1.1", "tcp/ip", 8080);
 networkFacade.SendPackerOverNetwork();
 
 //Singleton
-
 Singleton s1 = Singleton.GetInstance();
 Singleton s2 = Singleton.GetInstance();
 
@@ -21,7 +20,6 @@ if (s1 == s2)
 {
     Console.WriteLine("Oks");
 }
-
 
 //Factory
 NetworkFacory factory = new NetworkFacory();
