@@ -2,9 +2,22 @@
 
 using DesignPatterns.NetworkFactory;
 using DesignPatterns.NetworkUtility;
+using DesignPatterns.Singleton;
 
 Console.WriteLine("Hello, World!");
 
+//Singleton
+
+Singleton s1 = Singleton.GetInstance();
+Singleton s2 = Singleton.GetInstance();
+
+if (s1 == s2)
+{
+    Console.WriteLine("Oks");
+}
+
+
+//Factory
 NetworkFacory factory = new NetworkFacory();
 
 var ping = factory.GetNetworkInstance("ping");
