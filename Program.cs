@@ -3,12 +3,25 @@
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.DataProccessor;
 using DesignPatterns.Adapter.Network;
+using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Facade;
 using DesignPatterns.NetworkFactory;
 using DesignPatterns.NetworkUtility;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Hello, World!");
+
+//Chain of responsibility
+IChain obj1 = new SendSHH();
+IChain obj2 = new SendPing();
+IChain obj3 = new SendARP();
+
+obj1.SetNext(obj2);
+obj2.SetNext(obj3);
+
+NetworkModel request = new NetworkModel("1.1.1.1", false);
+obj1.SendRequest(request);
+
 
 //Adapter
 INetworkClient network = new NetworkClient();
