@@ -8,13 +8,8 @@ public class NetworkFacory
     {
         INetwork obj = null;
         if (instance.ToLower().Equals("ping"))
-        {
             obj = new Ping();
-        }
-        else if (instance.ToLower().Equals("dns"))
-        {
-            obj = new DNS();
-        }
+        else if (instance.ToLower().Equals("dns")) obj = new DNS();
 
         return obj;
     }

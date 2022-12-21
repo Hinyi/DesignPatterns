@@ -8,9 +8,9 @@ public class NetworkFacade
 
     public NetworkFacade(string ip, string protocol, int port)
     {
-        this._packet = new Packet(ip);
-        this._socket = new Socket(port);
-        this._transmission = new Transmission(protocol);
+        _packet = new Packet(ip);
+        _socket = new Socket(port);
+        _transmission = new Transmission(protocol);
     }
 
     public void BuiltNetworklayer()

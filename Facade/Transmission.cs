@@ -7,7 +7,7 @@ public class Transmission
 
     public Transmission(string protocolName)
     {
-        this.Name = protocolName;
+        Name = protocolName;
     }
 
     public void SendTransmission()

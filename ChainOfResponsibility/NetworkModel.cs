@@ -8,6 +8,6 @@ public class NetworkModel
     public NetworkModel(string ip, bool success)
     {
         this.ip = ip;
-        this.Success = success;
+        Success = success;
     }
 }

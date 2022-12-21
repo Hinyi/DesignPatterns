@@ -2,18 +2,18 @@
 
 public class WoodenBuilder : IBuilder
 {
-    private Product _product = new Product();
-    
+    private Product _product = new();
+
     public WoodenBuilder()
     {
         Reset();
     }
-    
+
     public void Reset()
     {
         _product = new Product();
     }
-    
+
     public void BuildPartA()
     {
         _product.Add("PartA111");
@@ -28,10 +28,10 @@ public class WoodenBuilder : IBuilder
     {
         _product.Add("PartC111");
     }
-    
+
     public Product GetProduct()
     {
-        Product result = _product;
+        var result = _product;
         Reset();
 
         return result;

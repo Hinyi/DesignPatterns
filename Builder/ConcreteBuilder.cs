@@ -2,8 +2,8 @@
 
 public class ConcreteBuilder : IBuilder
 {
-    private Product _product = new Product();
-    
+    private Product _product = new();
+
     public ConcreteBuilder()
     {
         //Reset();
@@ -13,7 +13,7 @@ public class ConcreteBuilder : IBuilder
     {
         _product = new Product();
     }
-    
+
     public void BuildPartA()
     {
         _product.Add("PartA1");
@@ -31,7 +31,7 @@ public class ConcreteBuilder : IBuilder
 
     public Product GetProduct()
     {
-        Product result = _product;
+        var result = _product;
         //Reset();
 
         return result;

@@ -8,16 +8,16 @@ public class Director
     {
         _builder = builder;
     }
-    
+
     public void BuildMinimalViableProduct()
     {
-        this._builder.BuildPartA();
+        _builder.BuildPartA();
     }
-        
+
     public void BuildFullFeaturedProduct()
     {
-        this._builder.BuildPartA();
-        this._builder.BuildPartB();
-        this._builder.BuildPartC();
+        _builder.BuildPartA();
+        _builder.BuildPartB();
+        _builder.BuildPartC();
     }
 }
