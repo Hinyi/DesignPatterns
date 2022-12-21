@@ -7,9 +7,13 @@ using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Facade;
 using DesignPatterns.NetworkFactory;
 using DesignPatterns.NetworkUtility;
+using DesignPatterns.Proxy;
 using DesignPatterns.Singleton;
 
 Console.WriteLine("Hello, World!");
+//Proxy
+ISuperSecretDatabase result = new SuperSecretDatabaseProxy("testdb", "Password");
+result.DisplayDatabaseName();
 
 //Chain of responsibility
 IChain obj1 = new SendSHH();
