@@ -3,6 +3,7 @@
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.DataProccessor;
 using DesignPatterns.Adapter.Network;
+using DesignPatterns.Builder;
 using DesignPatterns.ChainOfResponsibility;
 using DesignPatterns.Facade;
 using DesignPatterns.NetworkFactory;
@@ -15,6 +16,28 @@ using DNS = DesignPatterns.Strategy.DNS;
 using Ping = DesignPatterns.Strategy.Ping;
 
 Console.WriteLine("Hello, World!");
+//Builder
+var builder = new WoodenBuilder();
+var builder2 = new ConcreteBuilder();
+var director = new Director(builder);
+var director2 = new Director(builder2);
+
+            
+Console.WriteLine("Standard basic product:");
+director.BuildMinimalViableProduct();
+Console.WriteLine(builder.GetProduct().ListParts());
+
+Console.WriteLine("Standard full featured product:");
+director2.BuildFullFeaturedProduct();
+Console.WriteLine(builder2.GetProduct().ListParts());
+
+// Remember, the Builder pattern can be used without a Director
+// class.
+Console.WriteLine("Custom product:");
+builder.BuildPartA();
+builder.BuildPartC();
+Console.Write(builder.GetProduct().ListParts());
+
 //Strategy
 Context context = new Context(new Ping());
 Context context2 = new Context(new ARP());
