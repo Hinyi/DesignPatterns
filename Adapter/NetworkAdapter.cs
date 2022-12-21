@@ -11,6 +11,7 @@ public class NetworkAdapter : INetworkClient
     {
         _dataProcessor = dataProcessor;
     }
+
     public void SendRequest(string ipAddress)
     {
         var apiKey = "sadasdasdassa";

@@ -5,7 +5,7 @@ public class SuperSecretDatabaseProxy : ISuperSecretDatabase
     private readonly string _databaseName;
     private readonly string _password;
     private SuperSecretDatabase _superSecretDatabase;
-    
+
     public SuperSecretDatabaseProxy(string databaseName, string password)
     {
         _databaseName = databaseName;
@@ -16,10 +16,7 @@ public class SuperSecretDatabaseProxy : ISuperSecretDatabase
     {
         if (_password.Equals("Password"))
         {
-            if (_superSecretDatabase == null)
-            {
-                _superSecretDatabase = new SuperSecretDatabase(_databaseName);
-            }
+            if (_superSecretDatabase == null) _superSecretDatabase = new SuperSecretDatabase(_databaseName);
             _superSecretDatabase.DisplayDatabaseName();
         }
     }

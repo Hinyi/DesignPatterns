@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using DesignPatterns.AbstractFactory;
 using DesignPatterns.Adapter;
 using DesignPatterns.Adapter.DataProccessor;
 using DesignPatterns.Adapter.Network;
@@ -11,18 +12,21 @@ using DesignPatterns.NetworkUtility;
 using DesignPatterns.Proxy;
 using DesignPatterns.Singleton;
 using DesignPatterns.Strategy;
+using DesignPatterns.AbstractFactory;
 using ARP = DesignPatterns.Strategy.ARP;
 using DNS = DesignPatterns.Strategy.DNS;
 using Ping = DesignPatterns.Strategy.Ping;
 
 Console.WriteLine("Hello, World!");
+//Abstract class
+new Client_test().test();
+
 //Builder
 var builder = new WoodenBuilder();
 var builder2 = new ConcreteBuilder();
 var director = new Director(builder);
 var director2 = new Director(builder2);
 
-            
 Console.WriteLine("Standard basic product:");
 director.BuildMinimalViableProduct();
 Console.WriteLine(builder.GetProduct().ListParts());
@@ -39,9 +43,9 @@ builder.BuildPartC();
 Console.Write(builder.GetProduct().ListParts());
 
 //Strategy
-Context context = new Context(new Ping());
-Context context2 = new Context(new ARP());
-Context context3 = new Context(new DNS());
+var context = new Context(new Ping());
+var context2 = new Context(new ARP());
+var context3 = new Context(new DNS());
 
 context.ExecuteStrategy();
 context2.ExecuteStrategy();
@@ -59,7 +63,7 @@ IChain obj3 = new SendARP();
 obj1.SetNext(obj2);
 obj2.SetNext(obj3);
 
-NetworkModel request = new NetworkModel("1.1.1.1", false);
+var request = new NetworkModel("1.1.1.1", false);
 obj1.SendRequest(request);
 
 
@@ -70,28 +74,25 @@ network.SendRequest("1.1.1.1");
 IDataProcessor dataProcessor = new DataProcessor();
 dataProcessor.SendNetworkRequest("1.2.3.4", "123adfs123");
 
-NetworkAdapter adapter = new NetworkAdapter(dataProcessor);
+var adapter = new NetworkAdapter(dataProcessor);
 adapter.SendRequest("2.2.2.2");
 
 //Facade
-NetworkFacade networkFacade = new NetworkFacade("1.1.1.1", "tcp/ip", 8080);
+var networkFacade = new NetworkFacade("1.1.1.1", "tcp/ip", 8080);
 
 networkFacade.SendPackerOverNetwork();
 
 //Singleton
-Singleton s1 = Singleton.GetInstance();
-Singleton s2 = Singleton.GetInstance();
+var s1 = Singleton.GetInstance();
+var s2 = Singleton.GetInstance();
 
-if (s1 == s2)
-{
-    Console.WriteLine("Oks");
-}
+if (s1 == s2) Console.WriteLine("Oks");
 
 //Factory
-NetworkFacory factory = new NetworkFacory();
+var factory = new NetworkFacory();
 
 var ping = factory.GetNetworkInstance("ping");
 var dns = factory.GetNetworkInstance("dns");
 
-ping.sendMessage("123.123.123",4);
-dns.sendMessage("123.123.123",4);
+ping.sendMessage("123.123.123", 4);
+dns.sendMessage("123.123.123", 4);

@@ -8,7 +8,7 @@ public class Socket
 
     public Socket(int port)
     {
-        this.Port = port;
+        Port = port;
     }
 
     public void SocketBuilt()

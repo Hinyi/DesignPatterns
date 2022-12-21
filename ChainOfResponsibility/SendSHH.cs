@@ -3,7 +3,7 @@
 public class SendSHH : IChain
 {
     private IChain next;
-    
+
     public void SendRequest(NetworkModel request)
     {
         if (request.Success is false)
@@ -19,6 +19,6 @@ public class SendSHH : IChain
 
     public void SetNext(IChain nextChain)
     {
-        this.next = nextChain;
+        next = nextChain;
     }
 }

@@ -8,7 +8,7 @@ public class SuperSecretDatabase : ISuperSecretDatabase
     {
         _databaseName = databaseName;
     }
-    
+
     public void DisplayDatabaseName()
     {
         Console.WriteLine("Display database name: " + _databaseName);
