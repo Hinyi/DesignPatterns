@@ -9,8 +9,21 @@ using DesignPatterns.NetworkFactory;
 using DesignPatterns.NetworkUtility;
 using DesignPatterns.Proxy;
 using DesignPatterns.Singleton;
+using DesignPatterns.Strategy;
+using ARP = DesignPatterns.Strategy.ARP;
+using DNS = DesignPatterns.Strategy.DNS;
+using Ping = DesignPatterns.Strategy.Ping;
 
 Console.WriteLine("Hello, World!");
+//Strategy
+Context context = new Context(new Ping());
+Context context2 = new Context(new ARP());
+Context context3 = new Context(new DNS());
+
+context.ExecuteStrategy();
+context2.ExecuteStrategy();
+context3.ExecuteStrategy();
+
 //Proxy
 ISuperSecretDatabase result = new SuperSecretDatabaseProxy("testdb", "Password");
 result.DisplayDatabaseName();
