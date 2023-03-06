@@ -4,6 +4,10 @@ namespace DesignPatterns.AbstractFactory;
 
 public class Client_test
 {
+    public Client_test()
+    {
+        
+    }
     public void test()
     {
         ClientMethod(new AudiFactory());

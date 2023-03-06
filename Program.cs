@@ -6,18 +6,24 @@ using DesignPatterns.Adapter.DataProccessor;
 using DesignPatterns.Adapter.Network;
 using DesignPatterns.Builder;
 using DesignPatterns.ChainOfResponsibility;
+using DesignPatterns.Decorator;
 using DesignPatterns.Facade;
 using DesignPatterns.NetworkFactory;
-using DesignPatterns.NetworkUtility;
 using DesignPatterns.Proxy;
 using DesignPatterns.Singleton;
 using DesignPatterns.Strategy;
-using DesignPatterns.AbstractFactory;
 using ARP = DesignPatterns.Strategy.ARP;
 using DNS = DesignPatterns.Strategy.DNS;
 using Ping = DesignPatterns.Strategy.Ping;
 
 Console.WriteLine("Hello, World!");
+//Decorator
+IPizza pizza = new Pizza();
+IPizza cheeseDecorator = new CheeseDecorator(pizza);
+IPizza tomatoDecorator = new TomatoDecorator(cheeseDecorator);
+Console.WriteLine(cheeseDecorator.GetPizzaType());
+Console.WriteLine(tomatoDecorator.GetPizzaType());
+
 //Abstract class
 new Client_test().test();
 
